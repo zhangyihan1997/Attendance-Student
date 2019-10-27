@@ -162,10 +162,18 @@ public class UserHttpController {
                                 attendance = locations.getJSONObject(i).getInt("attendance");
                                 result = attendance;
                                 if(student_id.equals(account)) {
-                                    sb.append("student_id: " + student_id + "\n");
-                                    sb.append("longitude: " + longtitude + "\n");
-                                    sb.append("latitude: " + latitude + "\n");
-                                    sb.append("result: " + attendance + "\n\n");
+                                    if(attendance == 1){
+                                        sb.append("student_id: " + student_id + "\n");
+                                        sb.append("longitude: " + longtitude + "\n");
+                                        sb.append("latitude: " + latitude + "\n");
+                                        sb.append("result: Attendance \n\n");
+                                    }else{
+                                        sb.append("student_id: " + student_id + "\n");
+                                        sb.append("longitude: " + longtitude + "\n");
+                                        sb.append("latitude: " + latitude + "\n");
+                                        sb.append("result: Absent \n\n");
+                                    }
+
                                 }
                             }
                             textView.setText(sb.toString());
