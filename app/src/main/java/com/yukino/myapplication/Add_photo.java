@@ -1,5 +1,7 @@
 package com.yukino.myapplication;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -88,9 +90,26 @@ public class Add_photo extends AppCompatActivity {
                                         @Override
                                         public void fail() {
                                             Toast.makeText(Add_photo.this, "upload success",Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent();
-                                            intent.setClass(Add_photo.this,LoginActivity.class);
-                                            startActivity(intent);
+
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(Add_photo.this);
+                                            builder.setTitle("Add Photo")
+                                                    .setMessage("Upload Succeed.")
+                                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog,
+                                                                            int which) {
+                                                            Intent intent = new Intent();
+                                                            intent.setClass(Add_photo.this,LoginActivity.class);
+                                                            startActivity(intent);
+                                                        }
+                                                    })
+                                                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog,
+                                                                            int which) {
+                                                        }
+                                                    })
+                                                    .show();
                                         }
                                     });
                                 }
