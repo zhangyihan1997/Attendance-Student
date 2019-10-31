@@ -181,12 +181,11 @@ public class Local extends AppCompatActivity{
                     String.valueOf(location.getLatitude()), String.valueOf(location.getTime()), new UserHttpController.UserHttpControllerListener() {
                         @Override
                         public void success() {
-                            Toast.makeText(Local.this, "succeed",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Local.this, "upload location succeed",Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void fail() {
-                            Toast.makeText(Local.this, "uploading location",Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
